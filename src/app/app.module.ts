@@ -3,14 +3,59 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { SessionsComponent } from './sessions/sessions.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ShiftComponent } from './shift/shift.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ClasssetupComponent } from './classsetup/classsetup.component';
+import { SectionComponent } from './section/section.component';
+import { SubjectComponent } from './subject/subject.component';
+import { ExamtypeComponent } from './examtype/examtype.component';
+import { DesignationComponent } from './designation/designation.component';
+import { FeescategoryComponent } from './feescategory/feescategory.component';
+import { RegisterComponent } from './register/register.component';
+import { SubjectassignComponent } from './subjectassign/subjectassign.component';
+import { SubjectassigndetailsComponent } from './subjectassigndetails/subjectassigndetails.component';
+import { SubjectassigningcreateComponent } from './subjectassigningcreate/subjectassigningcreate.component';
+
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    HeaderComponent,
+    LoginComponent,
+    SessionsComponent,
+    DashboardComponent,
+    ShiftComponent,
+    ClasssetupComponent,
+    SectionComponent,
+    SubjectComponent,
+    ExamtypeComponent,
+    DesignationComponent,
+    FeescategoryComponent,
+    RegisterComponent,
+    SubjectassignComponent,
+    SubjectassigndetailsComponent,
+    SubjectassigningcreateComponent,
+  
+    
+    
+    
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

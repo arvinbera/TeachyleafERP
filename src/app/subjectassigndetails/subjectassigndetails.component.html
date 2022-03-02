@@ -1,0 +1,132 @@
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Subject</th>
+                            <th>Full Marks</th>
+                            <th>Pass Marks</th>
+                            <th>Subject Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of Model.subjectassign">
+                            <td></td>
+                            <td>{{x.subject?.name}}</td>
+                            <td>{{x.full_marks}}</td>
+                            <td>{{x.pass_marks}}</td>
+                            <td>{{x.subject_type}}</td>
+                            <td>  
+                             
+                              <span (click)="openDeletePopup(x)" class="glyphicon glyphicon-trash"></span>
+                            
+                            <i (click)="openEditPopup(x)" class="bi bi-pencil"></i>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+               
+</main>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Subject Assign</h4>
+      </div>
+      <form (ngSubmit)="updateSubject()">
+      <div class="modal-body">
+        
+        <div>
+          Subject &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+          <select class="form-control" name="subject_id" [(ngModel)]="Model.subject_id" required>
+            <option value="">Select Subject...</option>
+            
+            <option value="{{x.subject_id}}" *ngFor="let x of Model.subjectassign">{{x.subject?.name}}</option>
+            
+        </select>
+        </div>
+        
+        <div style="margin-top: 10px;">
+          Full Marks &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input class="form-control" type="text" name="full_marks" [(ngModel)]="Model.full_marks"/>
+        </div>
+        
+        <div style="margin-top: 10px;">
+          Pass Marks &nbsp;&nbsp;&nbsp;&nbsp;
+          <input class="form-control" type="text" name="pass_marks" [(ngModel)]="Model.pass_marks"/>
+        </div>
+        
+        <div style="margin-top: 10px;">
+          Subject Type &nbsp;&nbsp;&nbsp;
+          <select class="form-control" name="subject_type" [(ngModel)]="Model.subject_type">
+            <option value="" selected disabled>Select Subject Type...</option>
+            <option value="academic_assesment">Academic Assesment</option>
+            <option value="personal_assesment">Personal Assesment</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" 
+        >
+          Update
+        </button>
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayDeleteStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Session</h4>
+      </div>
+      <form (ngSubmit)="deleteSubject()">
+      <div class="modal-body">
+        
+          
+         Do you want to delete this subject assign?      
+  
+      </div>
+      
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" 
+        >
+          Yes
+        </button>
+
+        <button type="button" class="btn btn-danger" 
+                (click)="closeDeletePopup()">
+          No
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>ID Card System - Dashboard</title>
+		    <script language="javascript" type="text/javascript">
+        function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html><head><title></title></head><body>" + 
+              divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;
+
+          
+        }
+    </script>
+    <style>
+ 
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
+    </head>
+
+    <body>
+        
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    <span data-feather="home"></span>
+                                    <a routerLink="dashboard">Dashboard</a>
+                                    
+                                </a>
+                            </li>
+                            
+                            <div class="dropdown">
+                                <button class="dropbtn">Initial Setup</button>
+                                <div class="dropdown-content">
+                                  <a routerLink="dashboard/sessions">Sessions</a>
+                                  <a routerLink="dashboard/shift">Shifts</a>
+                                  <a routerLink="dashboard/class">Classes</a>
+                                  <a routerLink="dashboard/section">Sections</a>
+                                  <a routerLink="dashboard/subject">Subjects</a>
+                                  <a routerLink="dashboard/subjectassign">Subject Assignings</a>
+                                  <a routerLink="dashboard/examtype">Exam Types</a>
+                                  <a routerLink="dashboard/feescategory">Fees Categories</a>
+                                  <a href="#">Fees Amounts</a>
+                                  <a routerLink="dashboard/designation">Designations</a>
+                                </div>
+                              </div>
+                            
+                            <div class="dropdown">
+                                <button class="dropbtn">Students</button>
+                                <div class="dropdown-content">
+                                  <a href="#">Registrations</a>
+                                  <a href="#">Assigning Rolls</a>
+                                  <a href="#">ID Card</a>
+                                  <a href="#">Registration Fees</a>
+                                  <a href="#">Monthly Fees</a>
+                                  <a href="#">Exam Fees</a>
+                                </div>
+                              </div>
+
+                                <div class="dropdown">
+                                    <button class="dropbtn">Exam Marks</button>
+                                    <div class="dropdown-content">
+                                      <a href="#">Marks Entry</a>
+                                      <a href="#">Marks Edit</a>
+                                      <a href="#">Grades</a>
+                                      <a href="#">Marksheets</a>
+                                    </div>
+                                  </div>
+                                  
+<script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+    
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+      } else {
+      dropdownContent.style.display = "block";
+      }
+      });
+    }
+</script>
+                            
+                            <div class="dropdown">
+                                <button class="dropbtn">Employees</button>
+                                <div class="dropdown-content">
+                                <a href="#">Registrations</a>
+                                <a href="#">Salary</a>
+                                <a href="#">Leave Categories</a>
+                                <a href="#">Attendances</a>
+                                <a href="#">Salary</a>
+                                </div>
+                            </div>
+                            
+                            <div class="dropdown">
+                                <button class="dropbtn">Accounts</button>
+                                <div class="dropdown-content">
+                                  <a href="#">Student Fees</a>
+                                  <a href="#">Employee Salary</a>
+                                  <a href="#">Other Expenses</a>
+                                </div>
+                            </div>
+                            
+                            <div class="dropdown">
+                                <button class="dropbtn">Reports</button>
+                                <div class="dropdown-content">
+                                  <a href="#">Profit/Loss(Monthly)</a>
+                                  <a href="#">Employee Attendances</a>
+                                  <a href="#">Result Summary</a>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+                <main role="main"
+                class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <app-header></app-header>
+                    <div class="container-fluid">
+                    <router-outlet></router-outlet>
+                    </div>
+                </main>
+
+            </div>
+
+           
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+
+        <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+        <script>
+            feather.replace();
+        </script>
+
+        <script language="javascript">
+            var element = $("#widget"); // global variable
+            var getCanvas; // global variable
+
+            html2canvas(element, {
+                onrendered: function (canvas) {
+                    $("#copyDiv").append(canvas);
+                    getCanvas = canvas;
+                },
+            });
+        </script>
+    </body>
+</html>
