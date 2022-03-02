@@ -21,6 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { SubjectassignComponent } from './subjectassign/subjectassign.component';
 import { SubjectassigndetailsComponent } from './subjectassigndetails/subjectassigndetails.component';
 import { SubjectassigningcreateComponent } from './subjectassigningcreate/subjectassigningcreate.component';
+import { FeesamountComponent } from './feesamount/feesamount.component';
 
 
 
@@ -45,6 +46,7 @@ import { SubjectassigningcreateComponent } from './subjectassigningcreate/subjec
     SubjectassignComponent,
     SubjectassigndetailsComponent,
     SubjectassigningcreateComponent,
+    FeesamountComponent,
   
     
     

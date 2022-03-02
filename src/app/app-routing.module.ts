@@ -4,6 +4,7 @@ import { ClasssetupComponent } from './classsetup/classsetup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DesignationComponent } from './designation/designation.component';
 import { ExamtypeComponent } from './examtype/examtype.component';
+import { FeesamountComponent } from './feesamount/feesamount.component';
 import { FeescategoryComponent } from './feescategory/feescategory.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -60,6 +61,9 @@ const routes: Routes = [
   },
   {
     path:"dashboard/subjectassigndetails/:id",component:SubjectassigndetailsComponent
+  },
+  {
+    path:"dashboard/feesamount",component:FeesamountComponent
   }
 ];
 
