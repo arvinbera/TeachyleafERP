@@ -22,6 +22,7 @@ import { SubjectassignComponent } from './subjectassign/subjectassign.component'
 import { SubjectassigndetailsComponent } from './subjectassigndetails/subjectassigndetails.component';
 import { SubjectassigningcreateComponent } from './subjectassigningcreate/subjectassigningcreate.component';
 import { FeesamountComponent } from './feesamount/feesamount.component';
+import { FeescreateComponent } from './feescreate/feescreate.component';
 
 
 
@@ -47,6 +48,7 @@ import { FeesamountComponent } from './feesamount/feesamount.component';
     SubjectassigndetailsComponent,
     SubjectassigningcreateComponent,
     FeesamountComponent,
+    FeescreateComponent,
   
     
     

@@ -6,6 +6,7 @@ import { DesignationComponent } from './designation/designation.component';
 import { ExamtypeComponent } from './examtype/examtype.component';
 import { FeesamountComponent } from './feesamount/feesamount.component';
 import { FeescategoryComponent } from './feescategory/feescategory.component';
+import { FeescreateComponent } from './feescreate/feescreate.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SectionComponent } from './section/section.component';
@@ -64,6 +65,9 @@ const routes: Routes = [
   },
   {
     path:"dashboard/feesamount",component:FeesamountComponent
+  },
+  {
+    path:"dashboard/feescreate",component:FeescreateComponent
   }
 ];
 
