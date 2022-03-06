@@ -27,7 +27,7 @@ export class SubjectassigningcreateComponent implements OnInit {
 
 
     this.http.AddSubjectAssign(request).subscribe(res=>{
-      console.log("hello");
+      console.log(request);
     },
      error=>alert(error.message));
   }
