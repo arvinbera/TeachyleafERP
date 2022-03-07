@@ -7,6 +7,7 @@ import { ExamtypeComponent } from './examtype/examtype.component';
 import { FeesamountComponent } from './feesamount/feesamount.component';
 import { FeescategoryComponent } from './feescategory/feescategory.component';
 import { FeescreateComponent } from './feescreate/feescreate.component';
+import { FeesdetailsComponent } from './feesdetails/feesdetails.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SectionComponent } from './section/section.component';
@@ -68,6 +69,9 @@ const routes: Routes = [
   },
   {
     path:"dashboard/feescreate",component:FeescreateComponent
+  },
+  {
+    path:"dashboard/feesdetails/:id",component:FeesdetailsComponent
   }
 ];
 

@@ -15,9 +15,9 @@ export default class FeesAmountDataService extends BaseDataService
     {
         return this.ModelRequest(this.http,"feesamount",model);
     }
-    AllFeesAmounts()
+    AllFeesAmounts(model:any)
     {
-        return this.GetRequest(this.http,"feesamount");
+        return this.GetRequest(this.http,"feesamount/"+model.fees_category_id);
     }
     UpdateFeesAmount(model:any)
     {

@@ -1,0 +1,78 @@
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>class</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of Model.fees_amounts">
+                            <td></td>
+                            <td>{{x.section?.name}}</td>
+                            <td>{{x.amount}}</td>
+                            <td>  
+                             
+                            <i  class="bi bi-trash"></i>
+                            
+                            <i (click)="openEditPopup(x)" class="bi bi-pencil"></i>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+               
+</main>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Fees Details</h4>
+      </div>
+      <form>
+      <div class="modal-body">
+        
+        <div>
+          Subject &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+          <select class="form-control" name="class_id" [(ngModel)]="Model.class_id" required>
+            <option value="">Select class...</option>
+            
+            <option value="{{x.id}}" *ngFor="let x of Model.class_name">{{x.name}}</option>
+            
+        </select>
+        </div>
+        
+        <div style="margin-top: 10px;">
+          Fees Amount &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input class="form-control" type="text" name="amount" [(ngModel)]="Model.amount"/>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" 
+        >
+          Update
+        </button>
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
