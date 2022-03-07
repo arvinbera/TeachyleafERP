@@ -22,6 +22,7 @@ export class FeesdetailsComponent implements OnInit {
   }
   displayStyle = "none";
   displayDeleteStyle ="none";
+  
   bind()
   {
     this.http.AllFeesAmounts(this.Model).subscribe(res=>{
