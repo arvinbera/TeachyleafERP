@@ -8,4 +8,5 @@ export class FeesAmountModel{
     fees_category_id:string="";
     name?:string;
     section?:ClassSetupModel;
+    id?:number;
 }

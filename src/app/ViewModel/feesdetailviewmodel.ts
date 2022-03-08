@@ -9,4 +9,5 @@ export class feesdetailviewmodel
     fees_category_id?:string;
     fees_amounts:FeesAmountModel[]=[];
     class_name:ClassSetupModel[]=[];
+    id?:number;
 }

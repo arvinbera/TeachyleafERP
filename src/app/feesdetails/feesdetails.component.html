@@ -22,7 +22,7 @@
                             <td>{{x.amount}}</td>
                             <td>  
                              
-                            <i  class="bi bi-trash"></i>
+                            <i  (click)="openDeletePopup(x)" class="bi bi-trash"></i>
                             
                             <i (click)="openEditPopup(x)" class="bi bi-pencil"></i>
                           </td>
@@ -42,11 +42,11 @@
       <div class="modal-header">
         <h4 class="modal-title">Edit Fees Details</h4>
       </div>
-      <form>
+      <form  (ngSubmit)="updateFees()">
       <div class="modal-body">
         
         <div>
-          Subject &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Class &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           
           <select class="form-control" name="class_id" [(ngModel)]="Model.class_id" required>
             <option value="">Select class...</option>
@@ -70,6 +70,39 @@
         <button type="button" class="btn btn-danger" 
                 (click)="closePopup()">
           Close
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayDeleteStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Session</h4>
+      </div>
+      <form (ngSubmit)="deleteFeesDetails()">
+      <div class="modal-body">
+        
+          
+         Do you want to delete this fees details?      
+  
+      </div>
+      
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" 
+        >
+          Yes
+        </button>
+
+        <button type="button" class="btn btn-danger" 
+                (click)="closeDeletePopup()">
+          No
         </button>
       </div>
       </form>
