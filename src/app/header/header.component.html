@@ -13,12 +13,12 @@
         >
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="btn btn-link text-dark" href="#">Sign Out</a>
-                <a routerLink="dashboard/register">Register</a>
+                <a *ngIf="IsLogin"class="btn btn-link text-dark" href="#" (click)="Logout()">Sign Out</a>
+                <a *ngIf="!IsLogin" routerLink="dashboard/register">Register</a>
                 
             </li>
             <li>
-                <a routerLink="dashboard/register/login">Login</a>
+                <a *ngIf="!IsLogin" routerLink="dashboard/register/login">Login</a>
             </li>
         </ul>
     </nav>

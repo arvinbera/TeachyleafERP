@@ -1,0 +1,70 @@
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h3>Student Rolls</h3>
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content px-3">
+
+
+
+    <div class="clearfix"></div>
+
+    <div class="card">
+        <div class="card-body p-0">
+        
+
+            <div class="card-footer clearfix">
+                <form [formGroup]="SearchForm" (ngSubmit)="StudentSearch()">
+                    <div class="row">
+                     <div class="form-group col-sm-3">
+                        <label>Session</label>
+                        <select class="form-control" formControlName="session_id">
+                            <option>select session</option>
+                            <option *ngFor="let x of all_sessions" value="{{x.id}}">{{x.name}}</option>
+                        </select>
+                     </div>
+                     <div class="form-group col-sm-3">
+                        <label>Class</label>
+                      <select class="form-control" formControlName="class_id">
+                          <option>select class</option>
+                          <option *ngFor="let x of all_classes" value="{{x.id}}">{{x.name}}</option>
+                      </select>
+                     </div>
+                     <label></label>
+                     <div class="form-group col-sm-3">
+                         <button class="btn btn-primary">Search</button>
+                    </div>
+                  </div>
+                </form>
+                
+             <div class="row" *ngIf="isShown">
+                 <div class="form group col-sm-2">Sl No</div>
+                 <div class="form group col-sm-2">Name</div>
+                 <div class="form group col-sm-3">Email</div>
+                 <div class="form group col-sm-3">Phone</div>
+                 <div class="form group col-sm-1">Roll</div>
+                <div class="row" *ngFor="let x of all_students;let i=index;">
+                    <div class="form group col-sm-2">{{i+1}}</div>
+                    <div class="form group col-sm-2">{{x.name}}</div>
+                    <div class="form group col-sm-3">{{x.email}}</div>
+                    <div class="form group col-sm-3">{{x.phone}}</div>
+                    <div class="form group col-sm-1"><input type="text" name="roll" class="form-control" [(ngModel)]="x.roll_no"></div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success" (click)="SaveRoll()">Save Roll</button>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>

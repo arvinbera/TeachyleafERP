@@ -1,4 +1,3 @@
-
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -11,102 +10,108 @@
 
 <div class="content px-3">
 
-    
+
 
     <div class="card">
 
-    
+
 
         <div class="card-body">
 
             <!-- <div class="row"> -->
 
 
-        <div class="add_item">
-            <form (ngSubmit)="SubjectAssign()">
-                <div class="form-row">
-                    <div class="form-group col-sm-4">
-                     
-                        <select class="form-control" name="class_id"  [(ngModel)]="Model.class_id" required>
-                            <option>Select class</option>
-                            <option value="{{x.id}}"*ngFor="let x of Model.bind_classes">{{x.name}}</option>
-                        
-                        </select>
-                        
+            <div class="add_item">
+                <form (ngSubmit)="SubjectAssign()">
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+
+                            <select class="form-control" name="class_id" [(ngModel)]="Model.class_id" required>
+                                <option>Select class</option>
+                                <option value="{{x.id}}" *ngFor="let x of Model.bind_classes">{{x.name}}</option>
+
+                            </select>
+
+                        </div>
+                        <div class="form-group col-sm-2" style="margin-top: 0px;">
+                            <span class="btn btn-success addAnotherRow" (click)="addQuantity()">Add Subject</span>
+                        </div>
                     </div>
-                    <div class="form-group col-sm-2" style="margin-top: 0px;">
-                        <span class="btn btn-success addAnotherRow" (click)="addQuantity()">Add Subject</span>
-                    </div>
-                </div>
-                <section *ngFor="let assignee of Model.subjects;let i=index;">
-                <div class="form-row">
-                  
-                    <div class="form-group col-sm-4">
-                    
-                        <select class="form-control" name="subject_id" [(ngModel)]="assignee.subject_id" required>
-                            <option value="">Select Subject...</option>
-                            
-                            <option value="{{x.id}}" *ngFor="let x of Model.bind_subjects">{{x.name}}</option>
-                            
-                        </select> 
-                    </div>
-                    <div class="form-group col-sm-2">
-                        
-                        <input type="text" name="full_marks" class="form-control"  required  [(ngModel)]="assignee.full_marks">
-                                       </div>
-                    <div class="form-group col-sm-2">
-                        <input type="text" name="pass_marks" class="form-control" required [(ngModel)]="assignee.pass_marks" />
-                    
-                    </div>
-                    <div class="form-group col-2">
-                        
-                        <select class="form-control" name="subject_type" [(ngModel)]="assignee.subject_type"(change)="updateListItem($event,i)" required>
-                            <option value="" selected disabled>Select Subject Type...</option>
-                            <option value="academic_assesment">Academic Assesment</option>
-                            <option value="personal_assesment">Personal Assesment</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-sm-2" style="margin-top: 0px;">
-                        
-                            
-                    
+                    <section *ngFor="let assignee of Model.subjects;let i=index;">
+                        <div class="form-row">
+
+                            <div class="form-group col-sm-4">
+
+                                <select class="form-control" name="subject_id" [(ngModel)]="assignee.subject_id"
+                                    required>
+                                    <option value="">Select Subject...</option>
+
+                                    <option value="{{x.id}}" *ngFor="let x of Model.bind_subjects">{{x.name}}</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-2">
+
+                                <input type="text" name="full_marks" class="form-control" required
+                                    [(ngModel)]="assignee.full_marks">
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <input type="text" name="pass_marks" class="form-control" required
+                                    [(ngModel)]="assignee.pass_marks" />
+
+                            </div>
+                            <div class="form-group col-2">
+
+                                <select class="form-control" name="subject_type" [(ngModel)]="assignee.subject_type"
+                                    (change)="updateListItem($event,i)" required>
+                                    <option value="" selected disabled>Select Subject Type...</option>
+                                    <option value="academic_assesment">Academic Assesment</option>
+                                    <option value="personal_assesment">Personal Assesment</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-2" style="margin-top: 0px;">
+
+
+
+                                &nbsp;
+                                <span class="btn btn-danger addAnotherRow" (click)="removeQuantity(i)">Delete<i
+                                        class="fa fa-plus-circle"></i></span>
+                            </div>
+
+                        </div>
+
+
+                    </section>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Save</button>
                         &nbsp;
-                        <span class="btn btn-danger addAnotherRow" (click)="removeQuantity(i)">Delete<i class="fa fa-plus-circle"></i></span>
+                        <a class="btn btn-primary" style="color: antiquewhite;"
+                            routerLink="/dashboard/subjectassign">Cancel</a>
                     </div>
-                  
-                </div>
-
-    
-             </section>
-             <div class="card-footer">
-              <button class="btn btn-primary">Save</button>
-              &nbsp;
-              <a class="btn btn-primary" style="color: antiquewhite;" routerLink="/dashboard/subjectassign">Cancel</a>
-             </div>
-            </form>
+                </form>
 
 
-            <!-- </div> -->
+                <!-- </div> -->
+
+            </div>
+
+
+
+
 
         </div>
-
-
-
-     
-
     </div>
-</div>
 
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
 
-</script>
+    </script>
 
-<!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
-<script type="text/javascript" src="/js/jquery.validate.js"></script>
-<script type="text/javascript">
+    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
+    <script type="text/javascript" src="/js/jquery.validate.js"></script>
+    <script type="text/javascript">
 
 
-</script>
+    </script>

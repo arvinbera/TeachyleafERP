@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SessionsComponent } from './sessions/sessions.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ShiftComponent } from './shift/shift.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClasssetupComponent } from './classsetup/classsetup.component';
 import { SectionComponent } from './section/section.component';
@@ -24,6 +24,11 @@ import { SubjectassigningcreateComponent } from './subjectassigningcreate/subjec
 import { FeesamountComponent } from './feesamount/feesamount.component';
 import { FeescreateComponent } from './feescreate/feescreate.component';
 import { FeesdetailsComponent } from './feesdetails/feesdetails.component';
+import { StudentsModule } from './students/students.module';
+import { StudentModuleModule } from './student-module/student-module.module';
+
+
+
 
 
 
@@ -51,6 +56,8 @@ import { FeesdetailsComponent } from './feesdetails/feesdetails.component';
     FeesamountComponent,
     FeescreateComponent,
     FeesdetailsComponent,
+
+    
   
     
     
@@ -61,9 +68,16 @@ import { FeesdetailsComponent } from './feesdetails/feesdetails.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StudentsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor()
+  {
+    console.log("App Module Loaded");
+  }
+}

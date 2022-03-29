@@ -43,6 +43,7 @@ export class SubjectassigningcreateComponent implements OnInit {
 
     let subject=new SubjectAssignModel();
     this.Model.subjects.push(subject);
+    console.log(this.Model)
 
   }
   removeQuantity(i:number)

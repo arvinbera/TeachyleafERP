@@ -21,7 +21,7 @@ export default class SessionHelper {
 
     public static CheckAuth(){
         if(!SessionHelper.GetSession()){
-            window.location.href="user/login";
+            window.location.href="/dashboard/register/login";
         }
     }
 }

@@ -1,0 +1,168 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h3>New Student Registrations</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content px-3">
+
+
+
+    <div class="card">
+
+
+
+        <div class="card-body">
+
+            
+            <div class="row">
+                <form [formGroup]="RegisterForm" (ngSubmit)="StudentRegister()">
+                    <div class="row">
+                    <div class="form-group col-sm-4">
+                        <!-- Name Field -->
+                        <div class="form-group">
+                            <label>Name</label>
+                            <font style="color: red;">*</font>
+                            <input type="text" name="student" class="form-control" formControlName="student">
+                            <span style="color: red;" *ngIf="student && student.invalid && student.touched">please provide student name</span>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group">
+                            <label>Email</label>
+                            <font style="color: red;">*</font>
+                            <input type="text" name="email" class="form-control" formControlName="email">
+                            <span style="color: red;" *ngIf="email && email.invalid && email.touched">please provide email</span>
+                        </div>
+                        <!-- Phone Field -->
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <font style="color: red;">*</font>
+                            <input type="text" name="phone" class="form-control" formControlName="phone">
+                        </div>
+
+                    </div>
+                    
+                    <div class="col-sm-1"></div>
+                    <div class="form-group col-sm-7">
+                        <!-- Image Field -->
+
+                        <label>Profile Photo</label>
+                        <br>
+                        <img src="" class="p-2 border border-secondary" style="height: 200px; width: 160px;">
+                        <input type="file" name="path" id="image"
+                            accept="image/x-png, image/png, image/jpg, image/jpeg" (change)=SetImage($event)/>
+                        
+
+
+
+                    </div>
+                    </div>
+
+                <div class="row">
+                    <!-- Dob Field -->
+                    <div class="form-group col-sm-3">
+                        <label>Date of birth</label>
+                        <font style="color: red;">*</font>
+                        <input type="text" name="dob" class="form-control" formControlName="dob">
+                    </div>
+
+                    <!-- Gender Field -->
+                    <div class="form-group col-sm-3">
+                        <label>Gender</label>
+                        <font style="color: red;">*</font>
+                        <input type="text" name="gender" class="form-control" formControlName="gender">
+                    </div>
+
+                    <!-- Religion Field -->
+                    <div class="form-group col-sm-3">
+                        <label>Religion</label>
+                        <font style="color: red;">*</font>
+                        <input type="text" name="religion" class="form-control" formControlName="religion">
+                    </div>
+                 </div>
+                 <div class="row">
+                    <!-- Father Name Field -->
+                    <div class="form-group col-sm-3">
+                        <label>Father's Name</label>
+                        <font style="color: red;">*</font>
+                        <input type="text" name="dob" class="form-control" formControlName="f_name">
+                    </div>
+
+
+                    <!-- Father Phone Field -->
+
+                    <div class="form-group col-sm-3">
+                        <label>Father's Phone</label>
+                        <font style="color: red;">*</font>
+                        <input type="text" name="dob" class="form-control" formControlName="f_phone">
+                    </div>
+
+                    <!-- Mother Name Field -->
+                    <div class="form-group col-sm-4">
+                        <label>Mother's Name</label>
+                        <font style="color: red;">*</font>
+                        <input type="text" name="dob" class="form-control" formControlName="m_name">
+                    </div>
+                 </div>
+
+                  <div class="row">
+                    <!-- Address Current Field -->
+                    <div class="form-group col-sm-6">
+                        <label>Current Address</label><font style="color: red;">*</font>
+                        <textarea class="form-control" name="address_current" rows="5"formControlName="current_address"></textarea>
+                    </div>
+
+                    <!-- Address Permanent Field -->
+                    <div class="form-group col-sm-6">
+                        <label>Permanent Address</label><font style="color: red;">*</font>
+                        <textarea class="form-control" name="address_permanent" rows="5"formControlName="permanent_address"></textarea>
+                    </div>
+                  </div>
+
+                    
+
+                   <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label>Session</label>
+                        <select class="form-control" name="session_id" formControlName="session_id">
+                            <option value="">Select Session...</option>
+                            <option value="{{x.id}}" *ngFor="let x of all_sessions">{{x.name}}</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Shift</label>
+                        <select class="form-control" name="shift_id" formControlName="shift_id">
+                            <option value="">Select Shift...</option>
+                            <option value="{{x.id}}" *ngFor="let x of all_shifts">{{x.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Class</label>
+                        <select class="form-control" name="class_id" formControlName="class_id">
+                            <option>Select Class...</option>
+                            <option value="{{x.id}}" *ngFor="let x of all_classes">{{x.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Section</label>
+                        <select class="form-control" name="section_id" formControlName="section_id">
+                            <option>Select Section...</option>
+                            <option value="{{x.id}}" *ngFor="let x of all_sections">{{x.name}}</option>
+                        </select>
+                    </div>
+                   </div>
+                        <button [disabled]="RegisterForm.invalid" type="submit" class="btn btn-primary">Save</button>
+                        <a href="" class="btn btn-default">Cancel</a>
+                    
+                </form>
+            
+            </div>
+        </div>
+    </div>
+</div>

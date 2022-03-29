@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import SessionHelper from './core/SessionHelper';
 
 
 @Component({
@@ -8,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrontEnd';
-
+  public IsLogin:boolean=SessionHelper.GetSession()!=null?true:false;
   
 }

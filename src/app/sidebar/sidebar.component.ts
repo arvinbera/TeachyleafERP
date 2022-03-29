@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import SessionHelper from '../core/SessionHelper';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,5 +12,5 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public IsLogin:boolean=SessionHelper.GetSession()!=null?true:false;
 }

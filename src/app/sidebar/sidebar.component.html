@@ -72,13 +72,13 @@
                             <div class="dropdown">
 
                             </div>                              
-                              <li class="nav-item">
+                              <li *ngIf="IsLogin" class="nav-item">
                                 <a class="nav-link" href="index.html">
                                   <i class="typcn typcn-device-desktop menu-icon"></i>
                                   <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
                                 </a>
                               </li>
-                              <li class="nav-item">
+                              <li *ngIf="IsLogin" class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                                   <i class="typcn typcn-briefcase menu-icon"></i>
                                   <span class="menu-title">Initial Setup</span>
@@ -99,7 +99,7 @@
                                   </ul>
                                 </div>
                               </li>
-                              <li class="nav-item">
+                              <li  *ngIf="IsLogin" class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="ui-basic">
                                   <i class="typcn typcn-briefcase menu-icon"></i>
                                   <span class="menu-title">Students</span>
@@ -107,16 +107,14 @@
                                 </a>
                                 <div class="collapse" id="form-elements">
                                   <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" >Registrations</a></li>
-                                    <li class="nav-item"> <a class="nav-link" >Assigning Rolls</a></li>
+                                    <li class="nav-item"> <a class="nav-link" routerLink="/items">Registrations</a></li>
+                                    <li class="nav-item"> <a class="nav-link" routerLink="/items/rolls">Assigning Rolls</a></li>
                                     <li class="nav-item"> <a class="nav-link">ID Card</a></li>
-                                    <li class="nav-item"> <a class="nav-link">Registration Fees</a></li>
-                                    <li class="nav-item"> <a class="nav-link">Monthly Fees</a></li>
-                                    <li class="nav-item"> <a class="nav-link">Exam Fees</a></li>
+                                    <li class="nav-item"> <a class="nav-link" routerLink="/items/details">Student Details</a></li>
                                   </ul>
                                 </div>
                               </li>
-                                <div class="dropdown">
+                                <div  *ngIf="IsLogin" class="dropdown">
                                     <button class="dropbtn">Exam Marks</button>
                                     <div class="dropdown-content">
                                       <a href="#">Marks Entry</a>
@@ -128,7 +126,7 @@
                                   
 
                             
-                            <div class="dropdown">
+                            <div  *ngIf="IsLogin" class="dropdown">
                                 <button class="dropbtn">Employees</button>
                                 <div class="dropdown-content">
                                 <a href="#">Registrations</a>
@@ -139,7 +137,7 @@
                                 </div>
                             </div>
                             
-                            <div class="dropdown">
+                            <div  *ngIf="IsLogin" class="dropdown">
                                 <button class="dropbtn">Accounts</button>
                                 <div class="dropdown-content">
                                   <a href="#">Student Fees</a>
@@ -148,7 +146,7 @@
                                 </div>
                             </div>
                             
-                            <div class="dropdown">
+                            <div  *ngIf="IsLogin" class="dropdown">
                                 <button class="dropbtn">Reports</button>
                                 <div class="dropdown-content">
                                   <a href="#">Profit/Loss(Monthly)</a>

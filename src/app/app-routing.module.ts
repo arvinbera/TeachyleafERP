@@ -17,61 +17,69 @@ import { SubjectComponent } from './subject/subject.component';
 import { SubjectassignComponent } from './subjectassign/subjectassign.component';
 import { SubjectassigndetailsComponent } from './subjectassigndetails/subjectassigndetails.component';
 import { SubjectassigningcreateComponent } from './subjectassigningcreate/subjectassigningcreate.component';
-
+import { AuthGuard as Guard} from './jwt/AuthGuard';
+import { StudentRegistrationComponent } from './students/student-registration/student-registration.component';
 const routes: Routes = [
+  {
+    path: 'items',
+    loadChildren: () => import('./company/company.module').then(m => m.CompanyModule)
+  },
   {
   path:"dashboard/register/login",component:LoginComponent
   },
   {
-    path:"dashboard",component:DashboardComponent
+    path:"dashboard",component:DashboardComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/sessions",component:SessionsComponent
+    path:"dashboard/sessions",component:SessionsComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/shift",component:ShiftComponent
+    path:"dashboard/shift",component:ShiftComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/class",component:ClasssetupComponent
+    path:"dashboard/class",component:ClasssetupComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/section",component:SectionComponent
+    path:"dashboard/section",component:SectionComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/subject",component:SubjectComponent
+    path:"dashboard/subject",component:SubjectComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/examtype",component:ExamtypeComponent
+    path:"dashboard/examtype",component:ExamtypeComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/designation",component:DesignationComponent
+    path:"dashboard/designation",component:DesignationComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/feescategory",component:FeescategoryComponent
+    path:"dashboard/feescategory",component:FeescategoryComponent,canActivate:[Guard]
   },
   {
     path:"dashboard/register",component:RegisterComponent
   },
   {
-    path:"dashboard/subjectassign",component:SubjectassignComponent
+    path:"dashboard/subjectassign",component:SubjectassignComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/subjectassigncreate",component:SubjectassigningcreateComponent
+    path:"dashboard/subjectassigncreate",component:SubjectassigningcreateComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/subjectassigncreate/dashboard/subjectassign",component:SubjectassignComponent
+    path:"dashboard/subjectassigncreate/dashboard/subjectassign",component:SubjectassignComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/subjectassigndetails/:id",component:SubjectassigndetailsComponent
+    path:"dashboard/subjectassigndetails/:id",component:SubjectassigndetailsComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/feesamount",component:FeesamountComponent
+    path:"dashboard/feesamount",component:FeesamountComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/feescreate",component:FeescreateComponent
+    path:"dashboard/feescreate",component:FeescreateComponent,canActivate:[Guard]
   },
   {
-    path:"dashboard/feesdetails/:id",component:FeesdetailsComponent
+    path:"dashboard/feesdetails/:id",component:FeesdetailsComponent,canActivate:[Guard]
+  },
+  {
+    path:"dashboard/studentregistration",component:StudentRegistrationComponent
   }
 ];
 

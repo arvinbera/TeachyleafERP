@@ -15,9 +15,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                <form (ngSubmit)="AddDesignation()">
-                
-               <input type="text" name="examtype" [(ngModel)]="Model.designationname">
+                <form (ngSubmit)="AddDesignation()" #myForm="ngForm">
+               <input type="text" name="designationname" [(ngModel)]="Model.designationname"
+                #designationname="ngModel"
+                [ngClass]="{ 'is-invalid': myForm.submitted && designationname.invalid }" required>
+               <div class="col" *ngIf="designationname.invalid && (designationname.dirty || designationname.touched)"
+               class="alert alert-danger">
+               <div *ngIf="designationname.invalid">
+                <p *ngIf="designationname.errors?.required">Designation is required</p>
+              </div>
+               </div>
                 <button type="submit" class="btn btn-primary">Add Designation</button>
               </form>
               <div class="table-responsive">
@@ -35,7 +42,7 @@
                             <td>{{x.name}}</td>
                             <td>  
                              
-                              <span (click)="openDeletePopup(x)" class="glyphicon glyphicon-trash"></span>
+                              <i (click)="openDeletePopup(x)" class="bi bi-trash"></i>
                             
                             <i (click)="openEditPopup(x)" class="bi bi-pencil"></i>
                           </td>

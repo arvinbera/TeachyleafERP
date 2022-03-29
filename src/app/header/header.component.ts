@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import SessionHelper from '../core/SessionHelper';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
+  Logout()
+  {
+    localStorage.removeItem("session");
+    window.location.href="dashboard/register/login";
+  }
   ngOnInit(): void {
   }
-
+  public IsLogin:boolean=SessionHelper.GetSession()!=null?true:false;
 }
