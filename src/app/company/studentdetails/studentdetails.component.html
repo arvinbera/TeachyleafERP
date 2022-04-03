@@ -36,6 +36,15 @@
                         </div>
                     </div>
                 </form>
+                <form [formGroup]="uploadForm" (ngSubmit)="uploadBulk()">
+                    <div class="row">
+                        Upload Student Bulk
+                       <input type="file" id="file" formControlName="file" (change)=SetFile($event)>
+                        <div class="form-group col-sm-3">
+                           <button  class="btn btn-primary">Upload</button>
+                        </div>
+                    </div>
+                </form>
                 <div class="row" *ngIf="allStudentList.length>0">
                     <div class="form group col-sm-1">Sl No</div>
                     <div class="form group col-sm-2">Name</div>

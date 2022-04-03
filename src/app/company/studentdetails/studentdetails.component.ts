@@ -23,6 +23,10 @@ export class StudentdetailsComponent implements OnInit {
     class_id:new FormControl(),
     id:new FormControl()
   });
+ uploadForm=new FormGroup({
+  file: new FormControl(),
+  fileSource: new FormControl()
+ });
   constructor(private sessionservice:SetupDataService,private classervice:ClassDataService,private http:StudentDataService) { }
   displayStyle = "none";
   displayDeleteStyle ="none";
@@ -35,7 +39,16 @@ export class StudentdetailsComponent implements OnInit {
     this.getAllSessions();
     this.StudentSearch();
   }
-  
+  SetFile(event:any)
+  {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.patchValue({
+        fileSource: file
+      });
+    }
+
+  }
   StudentSearch()
   {
     this.http.SearchStudentDetail(this.SearchForm.value).subscribe(res=>{
@@ -46,6 +59,18 @@ export class StudentdetailsComponent implements OnInit {
       this.allStudentList=res.Data;
       }
     },error=>{alert("Error")});
+  }
+  uploadBulk()
+  {
+    const formData = new FormData();
+    formData.append('file',this.uploadForm.get('fileSource')?.value);
+    console.log(formData);
+    this.http.UploadBulkStudent(formData).subscribe(res=>{
+      console.log(res);
+      alert("Data Inserted Successfully");
+    },error=>{
+      alert("Error");
+    })
   }
   getAllClasses()
   {

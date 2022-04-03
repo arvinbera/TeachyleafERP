@@ -42,4 +42,8 @@ export default class StudentDataService extends BaseDataService
    {
      return this.ModelRequest(this.http,"promotestudent/",model);
    }
+   UploadBulkStudent(model:any)
+   {
+     return this.ModelRequest(this.http,"bulkupload/",model);
+   }
 }
