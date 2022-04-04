@@ -53,4 +53,5 @@ interface BaseResponse{
     Data:Object;
     Message:string;
     Errors:Object;
+    Count:Object;
 }

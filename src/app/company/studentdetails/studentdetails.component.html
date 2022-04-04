@@ -69,6 +69,9 @@
                         <i class="fa fa-pencil" style="font-size:18px"></i>
                     </div>
                 </div>
+                <div class="row" *ngIf="allStudentList.length>0;page">
+                  <ngb-pagination [collectionSize]="total_count" [pageSize]="limit" [(page)]="page" (pageChange)="StudentSearch()" aria-label="Default pagination" formControlName="page"></ngb-pagination>
+                </div>
             </div>
         </div>
     </div>

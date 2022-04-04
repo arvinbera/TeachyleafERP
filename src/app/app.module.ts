@@ -26,6 +26,7 @@ import { FeescreateComponent } from './feescreate/feescreate.component';
 import { FeesdetailsComponent } from './feesdetails/feesdetails.component';
 import { StudentsModule } from './students/students.module';
 import { StudentModuleModule } from './student-module/student-module.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -70,7 +71,8 @@ import { StudentModuleModule } from './student-module/student-module.module';
     FormsModule,
     HttpClientModule,
     StudentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,18 +7,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup,FormControl } from '@angular/forms';
 import { StudentrollComponent } from './studentroll/studentroll.component';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     StudentComponent,
     StudentrollComponent,
-    StudentdetailsComponent
+    StudentdetailsComponent,
+    
   ],
   imports: [
     CommonModule,
     CompanyRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbPaginationModule, 
+    NgbAlertModule,
   ]
 })
 export class CompanyModule { 

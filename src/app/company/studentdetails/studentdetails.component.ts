@@ -14,9 +14,15 @@ export class StudentdetailsComponent implements OnInit {
   all_classes:any;
   promote_classes:any;
   promote_sessions:any;
+  page:any;
+  limit:any=2;
+  skip:any;
+  model:any;
+  total_count:any;
   SearchForm=new FormGroup({
     class_id:new FormControl(),
     session_id:new FormControl(),
+    page:new FormControl(),
   });
   PromoteForm=new FormGroup({
     session_id:new FormControl(),
@@ -51,12 +57,31 @@ export class StudentdetailsComponent implements OnInit {
   }
   StudentSearch()
   {
-    this.http.SearchStudentDetail(this.SearchForm.value).subscribe(res=>{
-      
+    if(this.page==1)
+    {
+      this.skip=0;
+    }
+    else
+    {
+      this.skip= (this.page -1) * this.limit;
+    }
+    var requestObject ={
+      'limit':this.limit,
+      'skip' :this.skip,
+      'class_id':this.SearchForm.controls['class_id'].value,
+      'session_id':this.SearchForm.controls['session_id'].value,
+    }
+    console.log(this.page);
+    this.model=[this.SearchForm,requestObject];
+    console.log(this.SearchForm.controls['class_id'].value);
+  
+    this.http.SearchStudentDetail(requestObject).subscribe(res=>{
       if(res.IsSuccess)
       {
         this.isShown=true;
       this.allStudentList=res.Data;
+      this.total_count=res.Count;
+      
       }
     },error=>{alert("Error")});
   }
