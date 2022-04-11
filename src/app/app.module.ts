@@ -27,7 +27,7 @@ import { FeesdetailsComponent } from './feesdetails/feesdetails.component';
 import { StudentsModule } from './students/students.module';
 import { StudentModuleModule } from './student-module/student-module.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { ChartsModule  } from 'ng2-charts';
 
 
 
@@ -72,7 +72,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     StudentsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -46,4 +46,12 @@ export default class StudentDataService extends BaseDataService
    {
      return this.ModelRequest(this.http,"bulkupload/",model);
    }
+   ChartDataStudent()
+   {
+     return this.GetRequest(this.http,"getchartdata");
+   }
+   PieChartStudent()
+   {
+     return this.GetRequest(this.http,"piechartdata");
+   }
 }

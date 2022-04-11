@@ -1,146 +1,30 @@
-
-
-                <main
-                role="main"
-                class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4"
-            >
-                <input
-                    class="form-control form-control-dark w-100"
-                    type="text"
-                    placeholder="Search"
-                    aria-label="Search"
-                />
-                <div
-                    class="
-                        d-flex
-                        justify-content-between
-                        flex-wrap flex-md-nowrap
-                        align-items-center
-                        pb-2
-                        mb-3
-                        border-bottom
-                    "
-                ></div>
-
-                <div class="container-fluid">
-                    <h2>Search Result...</h2>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-sm">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>ID</th>
-                                    <th>College Name</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Amit Kumar Das</td>
-                                    <td>KEI/KPC/038</td>
-                                    <td>Kingston Polytechnic College</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Amit Kumar Das</td>
-                                    <td>KEI/KPC/038</td>
-                                    <td>Kingston Polytechnic College</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Amit Kumar Das</td>
-                                    <td>KEI/KPC/038</td>
-                                    <td>Kingston Polytechnic College</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="container_id" id="printablediv">
-                    <!-- front side start  -->
-                    <div
-                        class="front"
-                        id="section-to-print copyDiv"
-                        style="
-                            background-image: url(../assets/images/kcs_front.jpg);
-                        "
-                    >
-                        <div class="top" id="printablediv">
-                            <img src="../assets/images/amit.jpg" />
-                        </div>
-                        <div class="bottom">
-                            <p><span>Name: </span>Amit Kumar Das</p>
-                            <p><span>ID: </span>KEI/KPC/038</p>
-                            <p><span>Session: </span>2015-2021</p>
-                            <p><span>Blood Group: </span>B+</p>
-                            <p><span>Contact: </span>9433857585</p>
-                            <div class="barcode">
-                                <img src="../assets/images/barcode.png" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- front side end  -->
-
-                    <div class="padding"></div>
-
-                    <!-- back side start  -->
-                    <div class="back">
-                        <div class="display">
-                            <h1 class="details">Information</h1>
-                            <hr />
-                            <div class="details-info">
-                                <p>
-                                    <span
-                                        >Kingston Educational
-                                        Institute</span
-                                    >
-                                </p>
-                                <p><span>Name: </span>Amit Kumar Das</p>
-                                <p><span>ID: </span>KEI/KPC/038</p>
-                                <p><span>Session: </span>2015-2021</p>
-                                <p><span>Blood Group: </span>B+</p>
-                                <p><span>Contact: </span>9433857585</p>
-                            </div>
-                            <div class="barcode">
-                                <img src="../assets/images/barcode.png" />
-                            </div>
-                            <hr />
-                        </div>
-                    </div>
-                    <!-- back side end  -->
-
-                    <!-- upload photo  -->
-                    <form
-                        method="post"
-                        action="#"
-                        class="form-group m-3 p-3"
-                    >
-                        <h6 class="my-3">Upload Photo</h6>
-                        <hr />
-                        <div class="form-group my-3">
-                            <input
-                                type="file"
-                                class="form-control my-3"
-                                accept=".csv,.xls, .xlsx"
-                            />
-                        </div>
-                        <button type="submit" class="btn btn-primary my-3">
-                            Upload Photo
-                        </button>
-                        <div style="clear: both"></div>
-                        <hr />
-                        <button
-                            type="button"
-                            class="btn btn-link btn-lg"
-                            style="font-size: 40px; text-decoration: none"
-                            value="Print 1st Div" onclick="javascript:printDiv('printablediv')"
-                        >
-                            <span data-feather="printer"></span>
-                            Print Card
-                        </button>
-                    </form>
-                </div>
-            </main>
-       
+<div style="display: block;">
+    <canvas baseChart width="500" height="200"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+ </div>
+ <div style="display: block;" >
+    <canvas baseChart 
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
