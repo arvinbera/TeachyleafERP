@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./company/company.module').then(m => m.CompanyModule)
   },
   {
+    path: 'fees',
+    loadChildren: () => import('./fees/fees.module').then(m=> m.FeesModule)
+  },
+  {
   path:"dashboard/register/login",component:LoginComponent
   },
   {

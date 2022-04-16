@@ -10,5 +10,5 @@ import SessionHelper from './core/SessionHelper';
 export class AppComponent {
   title = 'FrontEnd';
   public IsLogin:boolean=SessionHelper.GetSession()!=null?true:false;
-  
+  data=10;
 }

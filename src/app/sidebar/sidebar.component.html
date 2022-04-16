@@ -109,51 +109,30 @@
                                   <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" routerLink="/items">Registrations</a></li>
                                     <li class="nav-item"> <a class="nav-link" routerLink="/items/rolls">Assigning Rolls</a></li>
-                                    <li class="nav-item"> <a class="nav-link">ID Card</a></li>
                                     <li class="nav-item"> <a class="nav-link" routerLink="/items/details">Student Details</a></li>
                                   </ul>
                                 </div>
                               </li>
-                                <div  *ngIf="IsLogin" class="dropdown">
-                                    <button class="dropbtn">Exam Marks</button>
-                                    <div class="dropdown-content">
-                                      <a href="#">Marks Entry</a>
-                                      <a href="#">Marks Edit</a>
-                                      <a href="#">Grades</a>
-                                      <a href="#">Marksheets</a>
-                                    </div>
-                                  </div>
+                              <li  *ngIf="IsLogin" class="nav-item">
+                                <a class="nav-link" data-toggle="collapse" href="#form-elements1" aria-expanded="false" aria-controls="ui-basic">
+                                  <i class="typcn typcn-briefcase menu-icon"></i>
+                                  <span class="menu-title">Fees</span>
+                                  <i class="typcn typcn-chevron-right menu-arrow"></i>
+                                </a>
+                                <div class="collapse" id="form-elements1">
+                                  <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" routerLink="/fees/component">Component</a></li>
+                                    <li class="nav-item"> <a class="nav-link" routerLink="/fees/structure">Structure</a></li>
+                                    <li class="nav-item"> <a class="nav-link" routerLink="/fees/counter">Cash Counter</a></li>
+                                  </ul>
+                                </div>
+                              </li>
+                                
                                   
 
                             
-                            <div  *ngIf="IsLogin" class="dropdown">
-                                <button class="dropbtn">Employees</button>
-                                <div class="dropdown-content">
-                                <a href="#">Registrations</a>
-                                <a href="#">Salary</a>
-                                <a href="#">Leave Categories</a>
-                                <a href="#">Attendances</a>
-                                <a href="#">Salary</a>
-                                </div>
-                            </div>
                             
-                            <div  *ngIf="IsLogin" class="dropdown">
-                                <button class="dropbtn">Accounts</button>
-                                <div class="dropdown-content">
-                                  <a href="#">Student Fees</a>
-                                  <a href="#">Employee Salary</a>
-                                  <a href="#">Other Expenses</a>
-                                </div>
-                            </div>
                             
-                            <div  *ngIf="IsLogin" class="dropdown">
-                                <button class="dropbtn">Reports</button>
-                                <div class="dropdown-content">
-                                  <a href="#">Profit/Loss(Monthly)</a>
-                                  <a href="#">Employee Attendances</a>
-                                  <a href="#">Result Summary</a>
-                                </div>
-                            </div>
                         </ul>
                     </div>
                 </nav>
