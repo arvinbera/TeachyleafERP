@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   LoginUser()
   { 
      this.http.Login(this.Model).subscribe(res=>{
-       console.log(res.IsSuccess)
+       //console.log(res.Data)
       if(res.IsSuccess){
         SessionHelper.SetSession(res.Data);
         //this.router.navigate(["dashboard"]);

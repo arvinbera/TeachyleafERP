@@ -10,7 +10,7 @@ import { SessionsComponent } from './sessions/sessions.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ShiftComponent } from './shift/shift.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClasssetupComponent } from './classsetup/classsetup.component';
 import { SectionComponent } from './section/section.component';
 import { SubjectComponent } from './subject/subject.component';
@@ -29,7 +29,7 @@ import { StudentModuleModule } from './student-module/student-module.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule  } from 'ng2-charts';
 import { FeesModule } from './fees/fees.module';
-
+import { TokenInterceptorService } from './token-interceptor.service';
 
 
 
@@ -77,7 +77,11 @@ import { FeesModule } from './fees/fees.module';
     ChartsModule,
     FeesModule,
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

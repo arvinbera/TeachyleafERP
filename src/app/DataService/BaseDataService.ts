@@ -8,14 +8,14 @@ export default class BaseDataService{
     private ApiUrl:string="http://127.0.0.1:8000/api/";
 
     private session:any=SessionHelper.GetApiToken();
-    private header:HttpHeaders;
+    private header?:HttpHeaders;
 
-    constructor(){
-      this.header = new HttpHeaders({ 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.session.token}`
-     });
-    }
+    // constructor(){
+    //   this.header = new HttpHeaders({ 
+    //     'Content-Type': 'application/json',
+    //     'Authorization': `Bearer ${this.session.token}`
+    //  });
+    // }
     
     protected ModelRequest(http:HttpClient,url:string,model:any)
     {
@@ -48,7 +48,7 @@ export default class BaseDataService{
 
 }
 
-interface BaseResponse{
+ export interface BaseResponse{
     IsSuccess:boolean;
     Data:Object;
     Message:string;
