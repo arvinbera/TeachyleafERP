@@ -1,3 +1,30 @@
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -25,24 +52,71 @@
                     <div class="row">
                      <div class="form-group col-sm-3">
                         <label>Session</label>
-                        <select class="form-control" formControlName="session_id">
-                            <option>select session</option>
-                            <option *ngFor="let x of all_sessions">{{x.name}}</option>
+                        <select class="form-control" formControlName="session_id" (change)="Elligible($event)">
+                            <option value="">select session</option>
+                            <option value="{{x.id}}" *ngFor="let x of all_sessions"><b>{{x.name}}</b></option>
+                            
                         </select>
                      </div>
-                     <div class="form-group col-sm-3">
-                        <label>Class</label>
-                      <select class="form-control" formControlName="class_id">
-                          <option>Select Class</option>
-                          <option *ngFor="let x of all_classes">{{x.name}}</option>
-                      </select>
-                     </div>
-                     <label></label>
-                     <div class="form-group col-sm-3">
-                         <button class="btn btn-primary">Search</button>
-                    </div>
                   </div>
                 </form>
+                
+ <table *ngIf="structure_list?.length>0">
+    <tr>
+      <th>Sl</th>
+      <th *ngIf="elligible">Action</th>
+      <th>Course</th>
+      <th>Structure 1</th>
+      <th>Structure 2</th>
+      <th>Structure 3</th>
+    </tr>
+    <tr *ngFor="let x of structure_list;let i=index">
+      <td>{{i+1}}</td>
+      <td *ngIf="elligible"><i class="bi bi-eye"></i>&nbsp;&nbsp;<i (click)="OpenStructureAddModal(x)" class="fa fa-plus"></i>&nbsp;&nbsp;<a routerLink="/paymentmode/{{x.id}}"><i class="bi bi-bookmark-plus-fill"></i></a></td>
+      <td>{{x.name}}</td>
+      <!-- <td></td>
+      <td></td>
+      <td></td> -->
+      <td *ngFor="let s of x.structures;let i=index">
+        {{s.name}}
+        
+      </td>
+
+
+    </tr>
+  </table>
             </div>
         </div>
     </div>
+    <div
+class="modal"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle}">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Add Structure</h4>
+    </div>
+    <form [formGroup]="FeesStructureForm" (ngSubmit)="AddStructure()">
+    <div class="modal-body">
+      
+        <input type="text" name="examtype" formControlName="structure"/>
+      
+  
+    </div>
+    
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="isAdded"
+      >
+        Add
+      </button>
+      <button type="button" class="btn btn-danger" 
+      (click)="CloseStructureModal()"        >
+        Close
+      </button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>

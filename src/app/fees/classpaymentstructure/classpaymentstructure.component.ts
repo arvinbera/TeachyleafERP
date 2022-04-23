@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import SetupDataService from 'src/app/DataService/SetupDataService';
 import ClassDataService from 'src/app/DataService/ClassDataService';
+import { FormControl, FormGroup } from '@angular/forms';
+import FeesStructureDataService from 'src/app/DataService/FeesStructureDataService';
 
 @Component({
   selector: 'app-classpaymentstructure',
@@ -10,27 +12,88 @@ import ClassDataService from 'src/app/DataService/ClassDataService';
 export class ClasspaymentstructureComponent implements OnInit {
   all_classes:any;
   all_sessions:any;
-  constructor(private ClassService:ClassDataService,private SessionService:SetupDataService) { }
+  current_session:any;
+  elligible:any=0;
+  model:any;
+  structure_list:any;
+  displayStyle = "none";
+  items ={ session_id:'',class_id:'',name:''};
+  isAdded:boolean=false;
+  
+  constructor(private ClassService:ClassDataService,private SessionService:SetupDataService,private StructureService:FeesStructureDataService) { }
 
   ngOnInit(): void {
-    this.bind();
+  
     this.bind2();
   }
-  bind()
+  FeesStructureForm = new FormGroup({
+    structure:new FormControl()
+  });
+  Elligible(x:any)
   {
-    this.ClassService.ClassList().subscribe(res=>{
+    let {target:{value}}=x;
+    if(!value)
+    {
+      this.elligible=0
+      this.structure_list=[];
+    }
+    else
+    {
+    this.elligible=1;
+    this.current_session=value;
+    this.StructureList();
+    }
+  }
+  AddStructure()
+  {
+   this.items.class_id=this.model.id;
+   this.items.session_id=this.current_session;
+   this.items.name=this.FeesStructureForm.value['structure'];
+   console.log(this.items);
+   this.StructureService.AddStructure(this.items).subscribe(res=>{
+    if(res.IsSuccess)
+    { 
+    alert("Fees Structure Added")
+    this.displayStyle="none";
+    this.StructureList();
+    }
+   },error=>{
+     alert("Something is Wrong")
+   })
+  }
+  StructureList()
+  {
+    this.items.session_id=this.current_session;
+    this.StructureService.StructureList(this.items).subscribe(res=>{
       if(res.IsSuccess)
       {
-        this.all_classes=res.Data;
+        this.structure_list=res.Data;
       }
-    },error=>{console.log(error.Message)})
+    },error=>{})
   }
+ 
+  OpenStructureAddModal(x:any)
+  {
+   this.displayStyle="block";
+   this.model=x;
+   if(x.structures?.length==3){
+    this.isAdded=true;
+   }else {
+     this.isAdded=false;
+   }
+  }
+  CloseStructureModal()
+  {
+    this.displayStyle="none";
+  }
+
   bind2()
   {
     this.SessionService.SessionList().subscribe(res=>{
       if(res.IsSuccess)
       {
         this.all_sessions=res.Data;
+        
       }
     },error=>{alert(error.message)})
   }

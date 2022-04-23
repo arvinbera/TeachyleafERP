@@ -1,0 +1,76 @@
+<link href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css" rel="stylesheet" >
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h3>New Student Registrations</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content px-3">
+
+
+
+    <div class="card">
+
+
+
+        <div class="card-body">
+
+            
+            
+                <form [formGroup]="InstallmentForm" (ngSubmit)="AddInstallments()">
+                    
+                    <div class="row">
+                        <!-- Name Field -->
+                        
+                            <div class="form-group col-sm-4">
+                                <label>Name of Payment Mode</label>
+                                <font style="color: red;">*</font>
+                                <input type="text" name="student" class="form-control" formControlName="student">
+                        
+                            </div>
+
+                        <!-- Email Field -->
+                        
+                        <!-- Phone Field -->
+                            <div class="form-group col-sm-4">
+                                <label>Number of installments</label>
+                                <font style="color: red;">*</font>
+                                <input type="number" name="phone" class="form-control" formControlName="numberofinstallment">
+                            </div>
+                            <div class="form-group col-sm-4" style="padding-top:30px;">
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </div>
+                    </div>
+                    <div *ngFor="let x of installment;let i=index;">
+                        <div class="row" *ngIf="installment">
+                            <div class="form-group col-sm-4">
+                                <label>Installment{{i+1}}</label>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="text" 
+                                class="form-control"
+                                bsDatepicker
+                                [bsValue]="bsValue"
+                                [bsConfig]="{ isAnimated: true,dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue' }"
+                                
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+                        
+                        
+                    
+                </form>
+            
+            
+        </div>
+    </div>
+</div>

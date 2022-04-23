@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClasspaymentstructureComponent } from './classpaymentstructure/classpaymentstructure.component';
 import { ComponentComponent } from './component/component.component';
 import { CounterComponent } from './counter/counter.component';
+import { PaymentmodeComponent } from './paymentmode/paymentmode.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:"counter",
     component:CounterComponent
+  },
+  {
+    path:"paymentmode/:id",
+    component:PaymentmodeComponent
   }
 ];
 

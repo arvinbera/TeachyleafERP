@@ -30,6 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule  } from 'ng2-charts';
 import { FeesModule } from './fees/fees.module';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 
 
@@ -76,12 +78,15 @@ import { TokenInterceptorService } from './token-interceptor.service';
     NgbModule,
     ChartsModule,
     FeesModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true
-  }],
+  },BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
