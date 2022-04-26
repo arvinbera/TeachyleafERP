@@ -20,4 +20,8 @@ export default class FeesStructureDataService extends BaseDataService
   {
     return this.GetRequest(this.http,`classfeesstructure?session_id=${model.session_id}`);
   }
+  AddFeesMode(model:any)
+  {
+    return this.ModelRequest(this.http,"addfeemode",model);
+  }
 }

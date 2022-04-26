@@ -32,6 +32,7 @@ import { FeesModule } from './fees/fees.module';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { TrialComponent } from './trial/trial.component';
 
 
 
@@ -60,6 +61,7 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
     FeesamountComponent,
     FeescreateComponent,
     FeesdetailsComponent,
+    TrialComponent,
 
     
   

@@ -15,6 +15,7 @@ export class ClasspaymentstructureComponent implements OnInit {
   current_session:any;
   elligible:any=0;
   model:any;
+  session_id:any;
   structure_list:any;
   displayStyle = "none";
   items ={ session_id:'',class_id:'',name:''};
@@ -42,6 +43,7 @@ export class ClasspaymentstructureComponent implements OnInit {
     this.elligible=1;
     this.current_session=value;
     this.StructureList();
+    this.session_id=value;
     }
   }
   AddStructure()

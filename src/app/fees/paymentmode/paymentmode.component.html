@@ -22,7 +22,7 @@
 
             
             
-                <form [formGroup]="InstallmentForm" (ngSubmit)="AddInstallments()">
+                <form [formGroup]="InstallmentForm" (ngSubmit)="SaveInstallment()">
                     
                     <div class="row">
                         <!-- Name Field -->
@@ -30,24 +30,25 @@
                             <div class="form-group col-sm-4">
                                 <label>Name of Payment Mode</label>
                                 <font style="color: red;">*</font>
-                                <input type="text" name="student" class="form-control" formControlName="student">
+                                <input type="text" name="student" class="form-control" formControlName="paymode">
                         
                             </div>
 
                         <!-- Email Field -->
                         
                         <!-- Phone Field -->
-                            <div class="form-group col-sm-4">
-                                <label>Number of installments</label>
+                            <div class="form-group col-sm-4" style="padding-top: 40px;">
+                                <label><strong>Add installments</strong></label>
                                 <font style="color: red;">*</font>
-                                <input type="number" name="phone" class="form-control" formControlName="numberofinstallment">
+                                
                             </div>
                             <div class="form-group col-sm-4" style="padding-top:30px;">
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="button" class="btn btn-primary" (click)="AddInstallments()">Add</button>
                             </div>
                     </div>
-                    <div *ngFor="let x of installment;let i=index;">
-                        <div class="row" *ngIf="installment">
+                    <div formArrayName="addDynamicElement">
+                    <div *ngFor="let item of addDynamicElement.controls;let i=index;">
+                        <div class="row">
                             <div class="form-group col-sm-4">
                                 <label>Installment{{i+1}}</label>
                             </div>
@@ -57,10 +58,16 @@
                                 bsDatepicker
                                 [bsValue]="bsValue"
                                 [bsConfig]="{ isAnimated: true,dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue' }"
-                                
+                                [formControlName]="i"
                                 />
                             </div>
                         </div>
+                    </div>
+                    </div>
+                    <div class="row" *ngIf="savebutton">
+                        
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            
                     </div>
                     
                     

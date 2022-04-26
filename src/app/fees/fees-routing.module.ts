@@ -19,7 +19,7 @@ const routes: Routes = [
     component:CounterComponent
   },
   {
-    path:"paymentmode/:id",
+    path:"paymentmode/:id/:session_id",
     component:PaymentmodeComponent
   }
 ];

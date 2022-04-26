@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClasssetupComponent } from './classsetup/classsetup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,6 +19,7 @@ import { SubjectassigndetailsComponent } from './subjectassigndetails/subjectass
 import { SubjectassigningcreateComponent } from './subjectassigningcreate/subjectassigningcreate.component';
 import { AuthGuard as Guard} from './jwt/AuthGuard';
 import { StudentRegistrationComponent } from './students/student-registration/student-registration.component';
+import { TrialComponent } from './trial/trial.component';
 const routes: Routes = [
   {
     path: 'items',
@@ -84,6 +85,9 @@ const routes: Routes = [
   },
   {
     path:"dashboard/studentregistration",component:StudentRegistrationComponent
+  },
+  {
+    path:"dashboard/trial",component:TrialComponent
   }
 ];
 

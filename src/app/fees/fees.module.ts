@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup,FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup,FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FeesRoutingModule } from './fees-routing.module';
 import { ClasspaymentstructureComponent } from './classpaymentstructure/classpaymentstructure.component';
 import { ComponentComponent } from './component/component.component';
@@ -19,7 +19,8 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
     CommonModule,
     FeesRoutingModule,
     ReactiveFormsModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+    FormsModule
   ],
   providers: [BsDatepickerConfig],
 })
