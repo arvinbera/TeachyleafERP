@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+
+        }
+
+        .row {
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Fees Details</h2>
+    <div class="row">
+        <div class="column">
+            <table>
+                <tr>
+                    <th (click)="ShowComponent()">Component</th>
+                </tr>
+                <tr>
+                    <td (click)="ShowAdmission()"><strong>During Admission</strong></td>
+
+                </tr>
+                <tr *ngFor="let x of paymodes">
+                    <td><strong>{{x.paymode}}</strong></td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="column" *ngIf="component" style="margin-left: auto;margin-right: auto;">
+            <app-feesstructurecomp [childData]="childData"></app-feesstructurecomp>
+        </div>
+        <div *ngIf="admission">
+            <app-admissionfee></app-admissionfee>
+        </div>
+    </div>
+</body>
+
+</html>

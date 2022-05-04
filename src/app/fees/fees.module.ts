@@ -7,13 +7,21 @@ import { ComponentComponent } from './component/component.component';
 import { CounterComponent } from './counter/counter.component';
 import { PaymentmodeComponent } from './paymentmode/paymentmode.component';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { ViewpaymentmodeComponent } from './viewpaymentmode/viewpaymentmode.component';
+import { FeesstructureComponent } from './feesstructure/feesstructure.component';
+import { FeesstructurecompComponent } from './feesstructurecomp/feesstructurecomp.component';
+import { AdmissionfeeComponent } from './admissionfee/admissionfee.component';
 
 @NgModule({
   declarations: [
     ClasspaymentstructureComponent,
     ComponentComponent,
     CounterComponent,
-    PaymentmodeComponent
+    PaymentmodeComponent,
+    ViewpaymentmodeComponent,
+    FeesstructureComponent,
+    FeesstructurecompComponent,
+    AdmissionfeeComponent
   ],
   imports: [
     CommonModule,

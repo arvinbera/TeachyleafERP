@@ -72,14 +72,14 @@
     </tr>
     <tr *ngFor="let x of structure_list;let i=index">
       <td>{{i+1}}</td>
-      <td *ngIf="elligible"><i class="bi bi-eye"></i>&nbsp;&nbsp;<i (click)="OpenStructureAddModal(x)" class="fa fa-plus"></i>&nbsp;&nbsp;<a routerLink="/paymentmode/{{x.id}}/{{session_id}}"><i class="bi bi-bookmark-plus-fill"></i></a></td>
+      <td *ngIf="elligible"><a routerLink="/viewpaymentmode/{{x.id}}/{{session_id}}"><i class="bi bi-eye"></i></a>&nbsp;&nbsp;<i (click)="OpenStructureAddModal(x)" class="fa fa-plus"></i>&nbsp;&nbsp;<a routerLink="/paymentmode/{{x.id}}/{{session_id}}"><i class="bi bi-bookmark-plus-fill"></i></a></td>
       <td>{{x.name}}</td>
       <!-- <td></td>
       <td></td>
       <td></td> -->
       <td *ngFor="let s of x.structures;let i=index">
         {{s.name}}
-        
+        <a routerLink="/feesstructure/{{x.id}}/{{session_id}}/{{s.name}}"><i class="fa fa-money"></i></a>
       </td>
 
 

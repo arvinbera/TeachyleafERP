@@ -1,4 +1,4 @@
-<link href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css" rel="stylesheet" >
+<link href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css" rel="stylesheet">
 
 <section class="content-header">
     <div class="container-fluid">
@@ -20,64 +20,60 @@
 
         <div class="card-body">
 
-            
-            
-                <form [formGroup]="InstallmentForm" (ngSubmit)="SaveInstallment()">
-                    
-                    <div class="row">
-                        <!-- Name Field -->
-                        
-                            <div class="form-group col-sm-4">
-                                <label>Name of Payment Mode</label>
-                                <font style="color: red;">*</font>
-                                <input type="text" name="student" class="form-control" formControlName="paymode">
-                        
-                            </div>
 
-                        <!-- Email Field -->
-                        
-                        <!-- Phone Field -->
-                            <div class="form-group col-sm-4" style="padding-top: 40px;">
-                                <label><strong>Add installments</strong></label>
-                                <font style="color: red;">*</font>
-                                
-                            </div>
-                            <div class="form-group col-sm-4" style="padding-top:30px;">
-                                <button type="button" class="btn btn-primary" (click)="AddInstallments()">Add</button>
-                            </div>
+
+            <form [formGroup]="InstallmentForm" (ngSubmit)="SaveInstallment()">
+
+                <div class="row">
+                    <!-- Name Field -->
+
+                    <div class="form-group col-sm-4">
+                        <label>Name of Payment Mode</label>
+                        <font style="color: red;">*</font>
+                        <input type="text" name="student" class="form-control" formControlName="paymode">
+
                     </div>
-                    <div formArrayName="addDynamicElement">
+
+                    <!-- Email Field -->
+
+                    <!-- Phone Field -->
+                    <div class="form-group col-sm-4" style="padding-top: 40px;">
+                        <label><strong>Add installments</strong></label>
+                        <font style="color: red;">*</font>
+
+                    </div>
+                    <div class="form-group col-sm-4" style="padding-top:30px;">
+                        <button type="button" class="btn btn-primary" (click)="AddInstallments()">Add</button>
+                    </div>
+                </div>
+                <div formArrayName="addDynamicElement">
                     <div *ngFor="let item of addDynamicElement.controls;let i=index;">
                         <div class="row">
                             <div class="form-group col-sm-4">
                                 <label>Installment{{i+1}}</label>
                             </div>
                             <div class="form-group col-sm-4">
-                                <input type="text" 
-                                class="form-control"
-                                bsDatepicker
-                                [bsValue]="bsValue"
-                                [bsConfig]="{ isAnimated: true,dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue' }"
-                                [formControlName]="i"
-                                />
+                                <input type="text" class="form-control" bsDatepicker [bsValue]="bsValue"
+                                    [bsConfig]="{ isAnimated: true,dateInputFormat: 'DD-MM-YYYY',containerClass:'theme-dark-blue' }"
+                                    [formControlName]="i" />
                             </div>
                         </div>
                     </div>
-                    </div>
-                    <div class="row" *ngIf="savebutton">
-                        
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            
-                    </div>
-                    
-                    
+                </div>
+                <div class="row" *ngIf="savebutton">
 
-                        
-                        
-                    
-                </form>
-            
-            
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+                </div>
+
+
+
+
+
+
+            </form>
+
+
         </div>
     </div>
 </div>

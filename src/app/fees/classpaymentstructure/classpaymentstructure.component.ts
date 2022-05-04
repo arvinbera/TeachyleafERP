@@ -70,6 +70,7 @@ export class ClasspaymentstructureComponent implements OnInit {
       if(res.IsSuccess)
       {
         this.structure_list=res.Data;
+        
       }
     },error=>{})
   }

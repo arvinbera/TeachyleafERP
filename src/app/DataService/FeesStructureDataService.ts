@@ -24,4 +24,12 @@ export default class FeesStructureDataService extends BaseDataService
   {
     return this.ModelRequest(this.http,"addfeemode",model);
   }
+  ShowFeesModes(model:any)
+  {
+    return this.GetRequest(this.http,"feesmodepaydate/"+model.class_id+"/"+model.session_id);
+  }
+  ShowInstallments(model:any)
+  {
+    return this.GetRequest(this.http,"installments/"+model.class_id+"/"+model.session_id+"/"+model.paymode);
+  }
 }
