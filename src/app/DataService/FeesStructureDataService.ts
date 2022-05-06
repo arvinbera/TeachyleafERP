@@ -32,4 +32,14 @@ export default class FeesStructureDataService extends BaseDataService
   {
     return this.GetRequest(this.http,"installments/"+model.class_id+"/"+model.session_id+"/"+model.paymode);
   }
+  AddComponentFees(model:any)
+  {
+    return this.ModelRequest(this.http,"addfeescomponent",model);
+  }
+  ComponentFeesDetails(model:any)
+  {
+    console.log(model);
+    console.log("componentfeedetails/"+model.class_id+"/"+model.session_id+"/"+model.fees_structure);
+    return this.GetRequest(this.http,"componentfeedetails/"+model.class_id+"/"+model.session_id+"/"+model.fees_structure);
+  }
 }

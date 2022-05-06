@@ -34,14 +34,17 @@
                 <td><strong>Component</strong></td>
                 <td><strong>Amount</strong></td>
             </tr>
-              
-                <tr *ngFor="let x of allcomponents;index as i;">
-                    <td>{{i+1}}</td>
-                    <td>{{x.component}}</td>
-                    <td><input  class="form-control" size="5" 
-                            (keypress)="numberOnly($event)"  name="amount" [(ngModel)]="x.amount"/></td>
+                <tr>
+
                 </tr>
-              
+                
+                    <tr *ngFor="let x of componentfees;index as i;">
+                        <td>{{i+1}}</td>
+                        <td>{{x.component}}</td>
+                        <td><input  class="form-control" size="5" 
+                                (keypress)="numberOnly($event)"  name="amount{{i}}" [(ngModel)]="x.amount"/></td>
+                    </tr>  
+                
             <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
