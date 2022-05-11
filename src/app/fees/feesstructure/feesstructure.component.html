@@ -56,8 +56,8 @@
         <div class="column" *ngIf="component" style="margin-left: auto;margin-right: auto;">
             <app-feesstructurecomp [childData]="childData"></app-feesstructurecomp>
         </div>
-        <div *ngIf="admission">
-            <app-admissionfee></app-admissionfee>
+        <div class="column" *ngIf="admission" style="margin-left: auto;margin-right: auto;">
+            <app-admissionfee [childData]="childData"></app-admissionfee>
         </div>
     </div>
 </body>

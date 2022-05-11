@@ -37,7 +37,7 @@ export class ViewpaymentmodeComponent implements OnInit {
   }
   ShowInstallments(x:any)
   {
-    this.displayStyle="block";
+    
     this.installment.class_id=this.class_id;
     this.installment.session_id=this.session_id;
     this.installment.paymode=x.paymode;
@@ -46,6 +46,7 @@ export class ViewpaymentmodeComponent implements OnInit {
       if(res.IsSuccess)
       {
         this.paydates=res.Data;
+        this.displayStyle="block";
         console.log(this.paydates)
       }
     },error=>{})

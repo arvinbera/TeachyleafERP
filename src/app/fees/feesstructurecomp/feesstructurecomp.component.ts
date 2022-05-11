@@ -41,8 +41,8 @@ export class FeesstructurecompComponent implements OnInit {
     this.componentfeesservice.ComponentFeesDetails(this.childData).subscribe(res=>{
       
       if(res.IsSuccess)
-      {
-        this.componentfees=res.Data;
+      { var data=res.Data as any;
+        this.componentfees=data.feesdetails;
         console.log(this.componentfees);
       }
     },error=>{})
@@ -84,7 +84,9 @@ export class FeesstructurecompComponent implements OnInit {
       {
         alert(res.Message)
       }
-    },error=>{})
+    },error=>{
+      console.log(error)
+    })
     console.log(model)
   }
   numberOnly(event: any): boolean {

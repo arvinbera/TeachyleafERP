@@ -1,1 +1,62 @@
-<p>admissionfee works!</p>
+<html>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 0px;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<body>
+    <form (ngSubmit)="SaveAdmissionFees()">
+        <table>
+            <tr>
+                <th style="text-align: center;" colspan="4">During Admission</th>
+
+            </tr>
+
+            <tr>
+                <td><strong>Sl</strong></td>
+                <td><strong>Component</strong></td>
+                <td><strong>Total</strong></td>
+                <td><strong>Admission Amount</strong></td>
+            </tr>
+            <ng-container *ngIf="another">
+                <tr>
+
+                </tr>
+                   
+                    <tr *ngFor="let x of totalfees;index as i;">
+                        <td>{{i+1}}</td>
+                        <td>{{x.component}}</td>
+                        <td>{{x.amount}}</td>
+                        <td><input  class="form-control" size="5" 
+                                (keypress)="numberOnly($event)"  name="amount{{i}}" [(ngModel)]="x.admission_amount"/></td>
+                    </tr>  
+                
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><button type="submit" class="btn btn-primary">Save</button></td>
+            </tr>
+        </ng-container>
+        </table>
+    </form>
+</body>
+
+</html>

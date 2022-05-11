@@ -11,6 +11,7 @@ import { ViewpaymentmodeComponent } from './viewpaymentmode/viewpaymentmode.comp
 import { FeesstructureComponent } from './feesstructure/feesstructure.component';
 import { FeesstructurecompComponent } from './feesstructurecomp/feesstructurecomp.component';
 import { AdmissionfeeComponent } from './admissionfee/admissionfee.component';
+import { PaymentfeesmodeComponent } from './paymentfeesmode/paymentfeesmode.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AdmissionfeeComponent } from './admissionfee/admissionfee.component';
     ViewpaymentmodeComponent,
     FeesstructureComponent,
     FeesstructurecompComponent,
-    AdmissionfeeComponent
+    AdmissionfeeComponent,
+    PaymentfeesmodeComponent
   ],
   imports: [
     CommonModule,
